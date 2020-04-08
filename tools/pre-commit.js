@@ -7,12 +7,12 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-const lint = require('./lint')
-const test = require('./test')
+// const lint = require('./lint')
+// const test = require('./test')
 
 async function preCommit() {
-  await lint()
-  await test()
+  // await lint()
+  // await test()
 }
 
 module.exports = preCommit().catch(process.exit)
