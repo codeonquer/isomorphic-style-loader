@@ -8,6 +8,10 @@
  */
 
 import React from 'react'
+
+// https://www.npmjs.com/package/hoist-non-react-statics
+// Copies non-react specific statics from a child component to a parent component
+// Similar to Object.assign, but with React static keywords blacklisted from being overridden
 import hoistStatics from 'hoist-non-react-statics'
 
 import StyleContext from './StyleContext'
@@ -17,6 +21,9 @@ function withStyles(...styles) {
     class WithStyles extends React.PureComponent {
       constructor(props, context) {
         super(props, context)
+        // 调用context上的insertCss方法
+        // 服务器端获取css
+        // 客户端插入style标签
         this.removeCss = context.insertCss(...styles)
       }
 
